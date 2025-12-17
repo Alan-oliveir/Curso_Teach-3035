@@ -1,0 +1,279 @@
+/* Estilos gerais para o corpo */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o rodapé fique no fim */
+}
+
+/* --- Projeto 1: Estilos do Header e Footer --- */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto; /* Empurra o rodapé para o final */
+}
+
+footer a {
+  color: #4caf50; /* Cor verde para o link do GitHub */
+}
+
+/* --- Corpo Principal --- */
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto; /* Centraliza o conteúdo principal */
+  flex-grow: 1; /* Faz o main crescer para preencher o espaço */
+}
+
+main h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* --- Projeto 2: Seção de Mudança de Cor --- */
+#projeto-cor {
+  text-align: center;
+}
+
+.caixa-cor {
+  width: 300px;
+  height: 150px;
+  background-color: #eee; /* Cor inicial */
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+#color-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#color-btn:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para a seção de vídeo */
+#video-sessao video {
+  max-width: 100%; /* Garante que o vídeo seja responsivo */
+  background-color: #000; /* Fundo preto para o player vazio */
+  border-radius: 8px;
+}
+
+/* --- Projeto 3: Layout em GRID --- */
+.post-grid {
+  display: grid;
+  /* Cria 3 colunas de tamanho igual (1fr) */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; /* Espaço entre os cards */
+}
+
+/* --- Projeto 3: Layout em FLEXBOX (dentro de cada card) --- */
+.post-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Configuração do Flexbox */
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna */
+  justify-content: space-between; /* Espaça o conteúdo */
+}
+
+.post-card h3 {
+  color: #4caf50;
+  margin-top: 0;
+}
+
+.post-card p {
+  flex-grow: 1; /* Faz o parágrafo crescer para preencher o espaço */
+}
+
+.post-card .cta-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px; /* Espaço acima do botão */
+  display: block; /* Faz o link ocupar a largura toda */
+}
+
+.post-card .cta-button:hover {
+  background-color: #45a049;
+}
+
+/* --- Estilos do Projeto 2: Tabela --- */
+
+.tabela-pontos {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse; /* Remove espaço entre bordas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Garante que o border-radius funcione */
+}
+
+.tabela-pontos thead tr {
+  background-color: #009879; /* Um verde-azulado, como na imagem */
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.tabela-pontos th,
+.tabela-pontos td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-pontos tbody tr {
+  background-color: #f3f3f3;
+}
+
+/* Fundo branco para linhas pares (efeito "zebra") */
+.tabela-pontos tbody tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.tabela-pontos tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* Estilo da linha destacada (Sally) da imagem */
+.tabela-pontos .linha-destaque {
+  background-color: #e0f2f1; /* Um verde bem claro */
+  color: #00796b; /* Um verde escuro para o texto */
+  font-weight: bold;
+}
+
+/* --- Estilos do Projeto 5: Calculadora --- */
+
+.calculadora {
+  width: 320px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+#calc-display {
+  width: 100%;
+  height: 60px;
+  font-size: 2em;
+  text-align: right;
+  padding: 0 10px;
+  box-sizing: border-box; /* Garante que o padding não quebre o layout */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #eee;
+}
+
+.calc-botoes {
+  display: grid;
+  /* 4 colunas de tamanho igual */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.calc-botoes button {
+  height: 60px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.calc-botoes button:hover {
+  background-color: #d5d5d5;
+}
+
+/* Estilos específicos dos botões */
+.calc-botoes .btn-op {
+  background-color: #f39c12; /* Laranja */
+  color: white;
+}
+.calc-botoes .btn-op:hover {
+  background-color: #e67e22;
+}
+
+.calc-botoes #btn-igual {
+  background-color: #2ecc71; /* Verde */
+  color: white;
+}
+.calc-botoes #btn-igual:hover {
+  background-color: #27ae60;
+}
+
+.calc-botoes #btn-limpar {
+  background-color: #e74c3c; /* Vermelho */
+  color: white;
+  /* Faz o "C" ocupar as 4 colunas */
+  grid-column: 1 / -1;
+}
+.calc-botoes #btn-limpar:hover {
+  background-color: #c0392b;
+}
+
+/* --- Projeto 3: Responsividade --- */
+@media (max-width: 768px) {
+  .post-grid {
+    /* Muda para 2 colunas em telas menores */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .post-grid {
+    /* Muda para 1 coluna em celulares */
+    grid-template-columns: 1fr;
+  }
+}

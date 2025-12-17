@@ -49,6 +49,9 @@ Desafio3035/
 └── README.md              # Este arquivo
 ```
 
+A página web com o projeto está disponível para ser acessada em:  
+https://alan-oliveir.github.io/Curso_Teach-3035/modulo-1/projeto/
+
 ## 🚀 Como Executar
 
 1. **Clone ou baixe o projeto**
@@ -94,3 +97,4 @@ O sistema utiliza o **LocalStorage** do navegador para armazenar:
 - **Responsivo** para diferentes tamanhos de tela
 - **Emojis temáticos** para melhor experiência visual
 - **Cards interativos** para produtos e clientes
+

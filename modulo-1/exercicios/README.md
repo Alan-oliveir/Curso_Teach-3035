@@ -39,6 +39,11 @@ Construção de uma calculadora funcional capaz de realizar as quatro operaçõe
 └── script.js           # Lógica JavaScript unificada
 ```
 
+## Deploy
+
+A página web com os exercícios está disponível para ser acessada em:  
+https://alan-oliveir.github.io/Curso_Teach-3035/modulo-1/exercicios/
+
 ## 🚀 Como Testar no VS Code
 
 Para visualizar o projeto localmente com a melhor experiência, siga os passos abaixo:

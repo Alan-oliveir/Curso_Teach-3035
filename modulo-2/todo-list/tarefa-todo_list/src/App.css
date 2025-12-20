@@ -1,0 +1,153 @@
+.container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 16px;
+  font-family: sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid #333;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  font-size: 2.5em;
+  text-align: center;
+  background: linear-gradient(135deg, #0078d4, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.todo-form input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #444;
+  background: #2b2b2b;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.todo-form input:focus {
+  border-color: #0078d4;
+}
+
+.todo-form button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  background: #0078d4;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.todo-form button:hover {
+  background: #005a9e;
+  transform: scale(1.05);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-list li {
+  background: #2b2b2b;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.todo-list li:hover {
+  border-color: #0078d4;
+  transform: translateX(5px);
+}
+
+.todo-list li input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #0078d4;
+}
+
+.todo-list li.completed span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-list span {
+  cursor: pointer;
+  flex: 1;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-delete {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background: #ff1a1a;
+  transform: scale(1.05);
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  padding: 20px;
+}
+
+.todo-stats {
+  margin-top: 25px;
+  padding: 15px;
+  background: #2b2b2b;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border: 2px solid #444;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}

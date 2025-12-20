@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Catálogo de Filmes - React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto foi desenvolvido como parte de um conjunto de tarefas práticas de Frontend. Ele consiste em uma interface de catálogo que permite pesquisar filmes e selecionar favoritos através de uma lista dinâmica.
 
-Currently, two official plugins are available:
+## Tarefas Implementadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Tarefa 2**: Exibição dos dados de um arquivo JSON em formato de tabela, com a implementação de um campo de busca que filtra os filmes pelo nome em tempo real.
+- **Tarefa 3**: Adição de uma propriedade `checked` via código para cada item, permitindo a seleção de filmes através de checkboxes e exibindo uma mensagem de confirmação para o usuário.
 
-## React Compiler
+## Desafios Técnicos e Soluções
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Durante o desenvolvimento, enfrentei alguns obstáculos comuns no ecossistema React/TypeScript que foram resolvidos da seguinte forma:
 
-## Expanding the ESLint configuration
+### 1. TypeScript e Importação de JSON
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Ao importar o arquivo `filmes.json`, o TypeScript não reconhecia automaticamente as propriedades dos objetos.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Solução**: Foi criada uma `interface` para definir a estrutura dos dados e utilizado o Type Assertion (`as FilmeOriginal[]`) para garantir que o estado inicial fosse tipado corretamente, permitindo o uso de métodos como `.map()` e `.filter()`.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 2. Estilização e Importação de CSS
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Em um primeiro momento, as alterações no `App.css` não estavam refletindo na tela.
+
+**Solução**: Identifiquei a falta do `import './App.css'` dentro do arquivo `App.tsx`. Após a importação, os estilos passaram a ser aplicados corretamente.
+
+### 3. Conflitos de CSS (index.css vs App.css)
+
+Houve um conflito visual onde as regras globais do `index.css` (geradas pelo Vite) estavam interferindo no layout da tabela e centralização dos elementos.
+
+**Solução**: Exclui o arquivo `index.css` e utilizei classes no `App.css`.
+
+## Tecnologias Utilizadas
+
+- React
+- TypeScript
+- Vite
+
+## Como Rodar o Projeto
+
+1. Clone este repositório
+2. Navegue até a pasta do projeto:
+```bash
+   cd tarefa-filmes
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. Instale as dependências:
+```bash
+   npm install
+```
+4. Inicie o servidor:
+```bash
+   npm run dev
 ```

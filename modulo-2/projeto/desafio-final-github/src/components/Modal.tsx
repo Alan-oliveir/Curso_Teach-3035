@@ -1,82 +1,82 @@
-import { useEffect } from 'react';
-import * as S from '../styles/Modal.styles';
+import { useEffect } from "react";
+import * as S from "../styles/Modal.styles";
 
 interface Repository {
-    id: number;
-    name: string;
-    html_url: string;
-    visibility: string;
-    language: string | null;
-    description: string | null;
+  id: number;
+  name: string;
+  html_url: string;
+  visibility: string;
+  language: string | null;
+  description: string | null;
 }
 
 interface ModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    repository: Repository | null;
+  isOpen: boolean;
+  onClose: () => void;
+  repository: Repository | null;
 }
 
 export default function Modal({ isOpen, onClose, repository }: ModalProps) {
-    useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-        };
-
-        if (isOpen) {
-            document.addEventListener('keydown', handleEscape);
-            document.body.style.overflow = 'hidden';
-        }
-
-        return () => {
-            document.removeEventListener('keydown', handleEscape);
-            document.body.style.overflow = 'unset';
-        };
-    }, [isOpen, onClose]);
-
-    if (!isOpen || !repository) return null;
-
-    const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (e.target === e.currentTarget) {
-            onClose();
-        }
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
     };
 
-    return (
-        <S.ModalOverlay onClick={handleOverlayClick}>
-            <S.ModalContent>
-                <S.ModalHeader>
-                    <h2>{repository.name}</h2>
-                    <S.CloseButton onClick={onClose}>&times;</S.CloseButton>
-                </S.ModalHeader>
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
 
-                <S.ModalBody>
-                    <S.ModalField>
-                        <label>Link</label>
-                        <a 
-                            href={repository.html_url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                        >
-                            {repository.html_url}
-                        </a>
-                    </S.ModalField>
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, onClose]);
 
-                    <S.ModalField>
-                        <label>Privacidade</label>
-                        <p>{repository.visibility === 'public' ? 'Público' : 'Privado'}</p>
-                    </S.ModalField>
+  if (!isOpen || !repository) return null;
 
-                    <S.ModalField>
-                        <label>Linguagem</label>
-                        <p>{repository.language || 'Não especificada'}</p>
-                    </S.ModalField>
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
-                    <S.ModalField>
-                        <label>Descrição</label>
-                        <p>{repository.description || 'Sem descrição disponível.'}</p>
-                    </S.ModalField>
-                </S.ModalBody>
-            </S.ModalContent>
-        </S.ModalOverlay>
-    );
+  return (
+    <S.ModalOverlay onClick={handleOverlayClick}>
+      <S.ModalContent>
+        <S.ModalHeader>
+          <h2>{repository.name}</h2>
+          <S.CloseButton onClick={onClose}>&times;</S.CloseButton>
+        </S.ModalHeader>
+
+        <S.ModalBody>
+          <S.ModalField>
+            <label>Link</label>
+            <a
+              href={repository.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {repository.html_url}
+            </a>
+          </S.ModalField>
+
+          <S.ModalField>
+            <label>Privacidade</label>
+            <p>{repository.visibility === "public" ? "Público" : "Privado"}</p>
+          </S.ModalField>
+
+          <S.ModalField>
+            <label>Linguagem</label>
+            <p>{repository.language || "Não especificada"}</p>
+          </S.ModalField>
+
+          <S.ModalField>
+            <label>Descrição</label>
+            <p>{repository.description || "Sem descrição disponível."}</p>
+          </S.ModalField>
+        </S.ModalBody>
+      </S.ModalContent>
+    </S.ModalOverlay>
+  );
 }

@@ -19,7 +19,7 @@ interface Repository {
   description: string | null;
 }
 
-const ITEMS_PER_PAGE = 9; // 3 colunas x 3 linhas = 9 cards por página
+const ITEMS_PER_PAGE = 6; // 3 colunas x 2 linhas = 6 cards por página
 
 export default function Profile() {
   const { username } = useParams<{ username: string }>();
@@ -141,9 +141,23 @@ export default function Profile() {
               {currentRepos.map((repo) => (
                 <S.RepoCard key={repo.id} onClick={() => handleCardClick(repo)}>
                   <h3>{repo.name}</h3>
-                  <p className="description">
-                    {repo.description || "Sem descrição."}
-                  </p>
+
+                  <S.RepoCardField>
+                    <label>Link</label>
+                    <a
+                      href={repo.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {repo.html_url}
+                    </a>
+                  </S.RepoCardField>
+
+                  <S.RepoCardField>
+                    <label>Descrição</label>
+                    <p>{repo.description || "Sem descrição."}</p>
+                  </S.RepoCardField>
                 </S.RepoCard>
               ))}
             </S.RepoGrid>

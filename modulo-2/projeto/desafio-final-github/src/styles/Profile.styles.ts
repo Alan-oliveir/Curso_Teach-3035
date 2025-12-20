@@ -11,7 +11,7 @@ export const Header = styled.header`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   img {
-    height: 25px;
+    height: 40px;
     cursor: pointer;
     transition: opacity 0.3s;
 
@@ -127,7 +127,7 @@ export const RepoCard = styled.article`
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  min-height: 140px;
+  gap: 1rem;
 
   &:hover {
     transform: translateY(-2px);
@@ -136,32 +136,67 @@ export const RepoCard = styled.article`
 
   h3 {
     color: ${(props) => props.theme.colors.primary};
-    margin-bottom: 0.75rem;
     font-size: 1rem;
     font-weight: 600;
-  }
-
-  .description {
-    color: #666;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 0;
   }
 
   @media (max-width: 768px) {
     padding: 1.25rem;
-    min-height: 120px;
+    gap: 0.875rem;
 
     h3 {
       font-size: 0.95rem;
     }
+  }
+`;
 
-    .description {
+export const RepoCardField = styled.div`
+  background-color: #f5f5f5;
+  padding: 0.875rem;
+  border-radius: 4px;
+
+  label {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: #333;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  a {
+    color: ${(props) => props.theme.colors.primary};
+    font-size: 0.875rem;
+    text-decoration: none;
+    word-break: break-all;
+    transition: opacity 0.2s;
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+
+    label {
+      font-size: 0.7rem;
+    }
+
+    p,
+    a {
       font-size: 0.8rem;
     }
   }

@@ -56,7 +56,7 @@ export const ModalHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #bdbdbd;
 
   h2 {
     color: ${(props) => props.theme.colors.primary};

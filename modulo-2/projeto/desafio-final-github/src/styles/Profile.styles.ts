@@ -21,6 +21,36 @@ export const Header = styled.header`
   }
 `;
 
+export const FullPageLoading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh; // Centraliza no meio da área de conteúdo
+  gap: 1.5rem;
+
+  img {
+    width: 64px;
+    height: 64px;
+    animation: rotate 2s linear infinite;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #333;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
 export const Content = styled.main`
   max-width: 1200px;
   margin: 0 auto;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import errorMessageBg from "../assets/error_message.png";
+
 export const SearchContainer = styled.main`
   display: flex;
   height: 100vh;
@@ -135,5 +137,75 @@ export const Button = styled.button`
 
   @media (max-width: 768px) {
     max-width: 100%;
+  }
+`;
+
+export const LoadingView = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  img {
+    width: 64px;
+    height: 64px;
+    animation: rotate 2s linear infinite;
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #333;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+export const ErrorAlert = styled.div`
+  background-image: url(${errorMessageBg});
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 100%;
+  max-width: 400px;
+
+  height: 130px;
+  margin-bottom: 1rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .error-content {
+    p {
+      visibility: hidden;
+    }
+  }
+
+  .close-error {
+    position: absolute;
+    top: 38px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    height: 110px;
+    margin-bottom: 0.5rem;
   }
 `;

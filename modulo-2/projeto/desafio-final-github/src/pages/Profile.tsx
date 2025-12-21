@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import logoWutech from "../assets/logo_profile.png";
+import loadingImg from "../assets/loading.png";
 import Modal from "../components/Modal";
 import * as S from "../styles/Profile.styles";
 
@@ -48,6 +49,8 @@ export default function Profile() {
       setError("");
 
       try {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
         const [userRes, reposRes] = await Promise.all([
           fetch(`https://api.github.com/users/${username}`),
           fetch(`https://api.github.com/users/${username}/repos`),
@@ -62,7 +65,7 @@ export default function Profile() {
 
         setUser(userData);
         setRepos(reposData);
-      } catch (err) {
+      } catch (_err) {
         setError("Erro ao carregar as informações do usuário.");
       } finally {
         setLoading(false);
@@ -101,7 +104,24 @@ export default function Profile() {
   };
 
   if (loading) {
-    return <S.LoadingWrapper>Carregando...</S.LoadingWrapper>;
+    return (
+      <S.ProfileContainer>
+        <S.Header>
+          <img
+            src={logoWutech}
+            alt="Logo Wutech"
+            onClick={() => navigate("/")}
+          />
+        </S.Header>
+
+        <S.Content>
+          <S.FullPageLoading>
+            <img src={loadingImg} alt="Carregando" />
+            <p>Carregando...</p>
+          </S.FullPageLoading>
+        </S.Content>
+      </S.ProfileContainer>
+    );
   }
 
   if (error) {

@@ -22,7 +22,7 @@ Esta aplicação permite aos usuários pesquisar perfis do GitHub e visualizar i
 
 ## 🚀 Deploy
 
-  [![Deploy](https://img.shields.io/badge/Deploy-Live-success?style=for-the-badge&logo=vercel)](https://seu-projeto.vercel.app)
+  [![Deploy](https://img.shields.io/badge/Deploy-Live-success?style=for-the-badge&logo=vercel)](https://curso-teach-3035.vercel.app/)
 
 ## ✨ Funcionalidades
 

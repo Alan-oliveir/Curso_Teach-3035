@@ -46,12 +46,12 @@ export const FormSide = styled.section`
 export const Title = styled.h1`
   color: ${(props) => props.theme.colors.text};
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: ${(props) => props.theme.spacing.xl};
   font-weight: 600;
 
   @media (max-width: 768px) {
     font-size: 1.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: ${(props) => props.theme.spacing.lg};
   }
 `;
 
@@ -60,7 +60,7 @@ export const InputGroup = styled.div`
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${(props) => props.theme.spacing.sm};
 
   @media (max-width: 768px) {
     max-width: 100%;
@@ -70,21 +70,21 @@ export const InputGroup = styled.div`
 export const Label = styled.label`
   color: ${(props) => props.theme.colors.text};
   font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: ${(props) => props.theme.spacing.sm};
   font-weight: 500;
 `;
 
 export const Input = styled.input`
   width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 0.875rem ${(props) => props.theme.spacing.md};
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: ${(props) => props.theme.borderRadius.sm};
   font-size: 1rem;
   color: ${(props) => props.theme.colors.text};
   transition: border-color 0.3s;
 
   &::placeholder {
-    color: #999;
+    color: ${(props) => props.theme.colors.textMuted};
   }
 
   &:focus {
@@ -93,7 +93,7 @@ export const Input = styled.input`
   }
 
   &:disabled {
-    background-color: #f5f5f5;
+    background-color: ${(props) => props.theme.colors.background};
     cursor: not-allowed;
   }
 `;
@@ -101,7 +101,7 @@ export const Input = styled.input`
 export const ErrorMessage = styled.p`
   color: ${(props) => props.theme.colors.error};
   font-size: 0.875rem;
-  margin-top: 0.5rem;
+  margin-top: ${(props) => props.theme.spacing.sm};
   text-align: center;
   min-height: 1.25rem;
   width: 100%;
@@ -115,16 +115,16 @@ export const ErrorMessage = styled.p`
 export const Button = styled.button`
   width: 100%;
   max-width: 400px;
-  padding: 0.875rem 1rem;
+  padding: 0.875rem ${(props) => props.theme.spacing.md};
   background-color: ${(props) => props.theme.colors.primary};
-  color: white;
+  color: ${(props) => props.theme.colors.secondary};
   border: none;
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.borderRadius.sm};
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s, opacity 0.3s;
-  margin-top: 1rem;
+  margin-top: ${(props) => props.theme.spacing.md};
 
   &:hover:not(:disabled) {
     background-color: #043d75;
@@ -145,7 +145,7 @@ export const LoadingView = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: ${(props) => props.theme.spacing.lg};
 
   img {
     width: 64px;
@@ -156,7 +156,7 @@ export const LoadingView = styled.div`
   p {
     font-weight: 600;
     font-size: 1.25rem;
-    color: #333;
+    color: ${(props) => props.theme.colors.text};
   }
 
   @keyframes rotate {
@@ -180,7 +180,7 @@ export const ErrorAlert = styled.div`
   max-width: 400px;
 
   height: 130px;
-  margin-bottom: 1rem;
+  margin-bottom: ${(props) => props.theme.spacing.md};
   position: relative;
   display: flex;
   align-items: center;
@@ -206,6 +206,6 @@ export const ErrorAlert = styled.div`
 
   @media (max-width: 768px) {
     height: 110px;
-    margin-bottom: 0.5rem;
+    margin-bottom: ${(props) => props.theme.spacing.sm};
   }
 `;

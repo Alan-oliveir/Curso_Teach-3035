@@ -46,7 +46,7 @@ export default function Search() {
     setError("");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
 
       const response = await fetch(`https://api.github.com/users/${username}`);
 
@@ -68,7 +68,7 @@ export default function Search() {
       }
 
       navigate(`/profile/${username}`, { state: { username } });
-    } catch (_err) {
+    } catch {
       setIsApiError(true); // Erro de API
       setError("Erro de conexão. Verifique sua internet.");
       setLoading(false);

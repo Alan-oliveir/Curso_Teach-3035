@@ -44,16 +44,22 @@ export default function Profile() {
       return;
     }
 
+    const abortController = new AbortController();
+
     const fetchData = async () => {
       setLoading(true);
       setError("");
 
       try {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 500));
 
         const [userRes, reposRes] = await Promise.all([
-          fetch(`https://api.github.com/users/${username}`),
-          fetch(`https://api.github.com/users/${username}/repos`),
+          fetch(`https://api.github.com/users/${username}`, {
+            signal: abortController.signal,
+          }),
+          fetch(`https://api.github.com/users/${username}/repos`, {
+            signal: abortController.signal,
+          }),
         ]);
 
         if (!userRes.ok || !reposRes.ok) {
@@ -65,8 +71,17 @@ export default function Profile() {
 
         setUser(userData);
         setRepos(reposData);
-      } catch (_err) {
-        setError("Erro ao carregar as informações do usuário.");
+      } catch (err) {
+        if (err instanceof Error && err.name === "AbortError") {
+          return; // Requisição abortada
+        }
+
+        if (err instanceof TypeError) {
+          setError("Erro de conexão. Verifique sua internet.");
+        } else {
+          setError("Erro ao carregar as informações do usuário.");
+        }
+        console.error("Erro ao buscar dados do GitHub:", err);
       } finally {
         setLoading(false);
       }
@@ -102,6 +117,10 @@ export default function Profile() {
       setCurrentPage(currentPage + 1);
     }
   };
+
+  useEffect(() => {
+    setCurrentPage(1); // Reseta para a primeira página ao mudar os repositórios
+  }, [repos]);
 
   if (loading) {
     return (
@@ -154,7 +173,9 @@ export default function Profile() {
         <S.SectionTitle>Repositórios</S.SectionTitle>
 
         {repos.length === 0 ? (
-          <S.EmptyState>Nenhum repositório encontrado.</S.EmptyState>
+          <S.EmptyState>
+            <p>Este usuário ainda não possui repositórios públicos.</p>
+          </S.EmptyState>
         ) : (
           <>
             <S.RepoGrid>
@@ -191,6 +212,7 @@ export default function Profile() {
                   <S.PaginationButton
                     onClick={handlePreviousPage}
                     disabled={currentPage === 1}
+                    aria-label="Página anterior"
                   >
                     <svg
                       viewBox="0 0 24 24"

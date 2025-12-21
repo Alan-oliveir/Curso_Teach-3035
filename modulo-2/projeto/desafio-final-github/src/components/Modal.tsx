@@ -42,11 +42,18 @@ export default function Modal({ isOpen, onClose, repository }: ModalProps) {
   };
 
   return (
-    <S.ModalOverlay onClick={handleOverlayClick}>
+    <S.ModalOverlay
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      onClick={handleOverlayClick}
+    >
       <S.ModalContent>
         <S.ModalHeader>
-          <h2>{repository.name}</h2>
-          <S.CloseButton onClick={onClose}>&times;</S.CloseButton>
+          <h2 id="modal-title">{repository.name}</h2>
+          <S.CloseButton onClick={onClose} aria-label="Fechar modal">
+            &times;
+          </S.CloseButton>
         </S.ModalHeader>
 
         <S.ModalBody>

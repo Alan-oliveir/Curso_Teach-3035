@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const ProfileContainer = styled.div`
-  background-color: #f5f5f5;
+  background-color: ${(props) => props.theme.colors.background};
   min-height: 100vh;
 `;
 
 export const Header = styled.header`
-  background-color: #fff;
-  padding: 1rem 5%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: ${(props) => props.theme.colors.secondary};
+  padding: ${(props) => props.theme.spacing.md} 5%;
+  box-shadow: ${(props) => props.theme.shadows.sm};
 
   img {
     height: 40px;
@@ -27,7 +27,7 @@ export const FullPageLoading = styled.div`
   align-items: center;
   justify-content: center;
   height: 60vh; // Centraliza no meio da área de conteúdo
-  gap: 1.5rem;
+  gap: ${(props) => props.theme.spacing.lg};
 
   img {
     width: 64px;
@@ -38,7 +38,7 @@ export const FullPageLoading = styled.div`
   p {
     font-weight: 600;
     font-size: 1.25rem;
-    color: #333;
+    color: ${(props) => props.theme.colors.text};
   }
 
   @keyframes rotate {
@@ -54,16 +54,19 @@ export const FullPageLoading = styled.div`
 export const Content = styled.main`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: ${(props) => props.theme.spacing.xl}
+    ${(props) => props.theme.spacing.lg};
 
   @media (max-width: 768px) {
-    padding: 1.5rem 1rem;
+    padding: ${(props) => props.theme.spacing.lg}
+      ${(props) => props.theme.spacing.md};
   }
 `;
 
 export const SectionTitle = styled.h2`
-  color: #333;
-  margin: 2rem 0 1rem;
+  color: ${(props) => props.theme.colors.text};
+  margin: ${(props) => props.theme.spacing.xl} 0
+    ${(props) => props.theme.spacing.md};
   font-size: 1.5rem;
   font-weight: 600;
 
@@ -77,18 +80,18 @@ export const SectionTitle = styled.h2`
 `;
 
 export const UserCard = styled.section`
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
+  background: ${(props) => props.theme.colors.secondary};
+  border-radius: ${(props) => props.theme.borderRadius.lg};
+  padding: ${(props) => props.theme.spacing.xl};
   display: flex;
-  gap: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border: 2px solid #e3e7eb;
+  gap: ${(props) => props.theme.spacing.xl};
+  box-shadow: ${(props) => props.theme.shadows.md};
+  border: 2px solid ${(props) => props.theme.colors.border};
 
   img {
     width: 100px;
     height: 100px;
-    border-radius: 8px;
+    border-radius: ${(props) => props.theme.borderRadius.md};
     object-fit: cover;
   }
 
@@ -98,16 +101,16 @@ export const UserCard = styled.section`
     label {
       display: block;
       font-size: 0.75rem;
-      color: #999;
+      color: ${(props) => props.theme.colors.textMuted};
       font-weight: 600;
       text-transform: uppercase;
-      margin-bottom: 0.25rem;
+      margin-bottom: ${(props) => props.theme.spacing.xs};
       letter-spacing: 0.5px;
     }
 
     p {
-      margin-bottom: 1rem;
-      color: #333;
+      margin-bottom: ${(props) => props.theme.spacing.md};
+      color: ${(props) => props.theme.colors.text};
       font-weight: 400;
       font-size: 0.95rem;
       line-height: 1.5;
@@ -122,7 +125,7 @@ export const UserCard = styled.section`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.5rem;
+    padding: ${(props) => props.theme.spacing.lg};
 
     img {
       width: 90px;
@@ -134,8 +137,8 @@ export const UserCard = styled.section`
 export const RepoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  gap: ${(props) => props.theme.spacing.lg};
+  margin-bottom: ${(props) => props.theme.spacing.lg};
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
@@ -143,25 +146,25 @@ export const RepoGrid = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: ${(props) => props.theme.spacing.md};
   }
 `;
 
 export const RepoCard = styled.article`
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem;
-  border: 2px solid #e3e7eb;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: ${(props) => props.theme.colors.secondary};
+  border-radius: ${(props) => props.theme.borderRadius.md};
+  padding: ${(props) => props.theme.spacing.lg};
+  border: 2px solid ${(props) => props.theme.colors.border};
+  box-shadow: ${(props) => props.theme.shadows.md};
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: ${(props) => props.theme.spacing.md};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(5, 71, 138, 0.15);
+    box-shadow: ${(props) => props.theme.shadows.lg};
   }
 
   h3 {
@@ -182,22 +185,22 @@ export const RepoCard = styled.article`
 `;
 
 export const RepoCardField = styled.div`
-  background-color: #f5f5f5;
+  background-color: ${(props) => props.theme.colors.background};
   padding: 0.875rem;
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.borderRadius.sm};
 
   label {
     display: block;
     font-size: 0.75rem;
-    color: #999;
+    color: ${(props) => props.theme.colors.textMuted};
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: ${(props) => props.theme.spacing.sm};
     letter-spacing: 0.5px;
   }
 
   p {
-    color: #333;
+    color: ${(props) => props.theme.colors.text};
     font-size: 0.875rem;
     line-height: 1.5;
     margin: 0;
@@ -236,8 +239,8 @@ export const PaginationContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: ${(props) => props.theme.spacing.md};
+  margin-top: ${(props) => props.theme.spacing.lg};
 
   @media (max-width: 768px) {
     justify-content: center;
@@ -251,7 +254,7 @@ export const PaginationInfo = styled.span`
 
 export const PaginationButtons = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: ${(props) => props.theme.spacing.sm};
 `;
 
 export const PaginationButton = styled.button<{ disabled?: boolean }>`
@@ -260,15 +263,15 @@ export const PaginationButton = styled.button<{ disabled?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 4px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  background: ${(props) => props.theme.colors.secondary};
+  border-radius: ${(props) => props.theme.borderRadius.sm};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? 0.4 : 1)};
   transition: background-color 0.2s, border-color 0.2s;
 
   &:hover:not(:disabled) {
-    background-color: #f5f5f5;
+    background-color: ${(props) => props.theme.colors.background};
     border-color: ${(props) => props.theme.colors.primary};
   }
 
@@ -298,14 +301,14 @@ export const ErrorWrapper = styled.div`
   color: ${(props) => props.theme.colors.error};
   font-size: 1.25rem;
   font-weight: 500;
-  gap: 1rem;
+  gap: ${(props) => props.theme.spacing.md};
 
   button {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem ${(props) => props.theme.spacing.lg};
     background-color: ${(props) => props.theme.colors.primary};
-    color: white;
+    color: ${(props) => props.theme.colors.secondary};
     border: none;
-    border-radius: 4px;
+    border-radius: ${(props) => props.theme.borderRadius.sm};
     font-size: 1rem;
     cursor: pointer;
     transition: opacity 0.3s;
@@ -318,7 +321,7 @@ export const ErrorWrapper = styled.div`
 
 export const EmptyState = styled.div`
   text-align: center;
-  padding: 3rem 1rem;
-  color: #666;
+  padding: 3rem ${(props) => props.theme.spacing.md};
+  color: ${(props) => props.theme.colors.textMuted};
   font-size: 1rem;
 `;

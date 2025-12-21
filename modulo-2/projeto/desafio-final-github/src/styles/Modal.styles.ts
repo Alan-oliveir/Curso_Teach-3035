@@ -11,7 +11,7 @@ export const ModalOverlay = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  padding: 1rem;
+  padding: ${(props) => props.theme.spacing.md};
   animation: fadeIn 0.2s ease-out;
 
   @keyframes fadeIn {
@@ -25,8 +25,8 @@ export const ModalOverlay = styled.div`
 `;
 
 export const ModalContent = styled.div`
-  background: white;
-  border-radius: 12px;
+  background: ${(props) => props.theme.colors.secondary};
+  border-radius: ${(props) => props.theme.borderRadius.lg};
   width: 100%;
   max-width: 600px;
   max-height: 90vh;
@@ -55,8 +55,9 @@ export const ModalHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #bdbdbd;
+  padding: ${(props) => props.theme.spacing.lg}
+    ${(props) => props.theme.spacing.xl};
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
 
   h2 {
     color: ${(props) => props.theme.colors.primary};
@@ -67,7 +68,7 @@ export const ModalHeader = styled.header`
   }
 
   @media (max-width: 768px) {
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem ${(props) => props.theme.spacing.lg};
 
     h2 {
       font-size: 1.25rem;
@@ -79,7 +80,7 @@ export const CloseButton = styled.button`
   background: none;
   border: none;
   font-size: 2rem;
-  color: #999;
+  color: ${(props) => props.theme.colors.textMuted};
   cursor: pointer;
   padding: 0;
   width: 32px;
@@ -87,25 +88,25 @@ export const CloseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: ${(props) => props.theme.borderRadius.sm};
   transition: background-color 0.2s, color 0.2s;
   flex-shrink: 0;
-  margin-left: 1rem;
+  margin-left: ${(props) => props.theme.spacing.md};
 
   &:hover {
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.text};
   }
 `;
 
 export const ModalBody = styled.div`
-  padding: 2rem;
+  padding: ${(props) => props.theme.spacing.xl};
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: ${(props) => props.theme.spacing.lg};
 
   @media (max-width: 768px) {
-    padding: 1.5rem;
+    padding: ${(props) => props.theme.spacing.lg};
     gap: 1.25rem;
   }
 `;
@@ -114,15 +115,15 @@ export const ModalField = styled.div`
   label {
     display: block;
     font-size: 0.75rem;
-    color: #999;
+    color: ${(props) => props.theme.colors.textMuted};
     font-weight: 600;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: ${(props) => props.theme.spacing.sm};
     letter-spacing: 0.5px;
   }
 
   p {
-    color: #333;
+    color: ${(props) => props.theme.colors.text};
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;

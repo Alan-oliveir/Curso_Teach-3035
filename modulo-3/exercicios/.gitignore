@@ -1,1 +1,4 @@
 *.class
+
+# Garantir que arquivos fonte Java não sejam ignorados (permitir comitar .java)
+!*.java
